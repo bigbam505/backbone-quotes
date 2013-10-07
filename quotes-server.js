@@ -42,11 +42,9 @@ app.get('/api/quote/:id', function(req, res){
 });
 
 app.post('/api/quote', function(req, res){
-	client.hkeys('quotes', function(err, keys){
-		var max = _.max(_.map(keys, function(key){ return _.parseInt(key);}));
+	client.incrby('max_quote_id', '1', function(err, maxKey){
 		var quote = req.body;
-		console.log(req.body);
-		quote.id = ++max;
+		quote.id = ++maxKey;
 		//Save this
 		client.hset('quotes', quote.id, JSON.stringify(quote));
 
