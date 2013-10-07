@@ -1,0 +1,11 @@
+{
+  "name": "backbone-quotes-server",
+  "description": "Lightweight server for testing with backbone",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "lodash": "2.x",
+    "redis": "~0.8.5"
+  }
+}
